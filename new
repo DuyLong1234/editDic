@@ -18,11 +18,6 @@ class Cambridge_DictionaryDuyLong {
         this.maxexample = options.maxexample;
     }
 
-    setOptions(options) {
-        this.options = options;
-        this.maxexample = options.maxexample;
-    }
-
     async findTerm(word) {
         this.word = word;
         let promises = [this.findCambridge(word), this.findYoudao(word)];
