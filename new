@@ -1,4 +1,3 @@
-
 class Cambridge_DictionaryDuyLong {
     constructor(options) {
         this.token = '';
