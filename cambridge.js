@@ -1,21 +1,15 @@
-class Cambridge_DictionaryDuyLong {
+class encn_Cambridge {
     constructor(options) {
-        this.token = '';
-        this.gtk = '';
         this.options = options;
         this.maxexample = 2;
         this.word = '';
     }
 
-
     async displayName() {
-        
-        return 'Cambridge EN->EN DictionaryDuyLong';
-    }
-
-    setOptions(options) {
-        this.options = options;
-        this.maxexample = options.maxexample;
+        let locale = await api.locale();
+        if (locale.indexOf('CN') != -1) return '剑桥英汉双解(简体)';
+        if (locale.indexOf('TW') != -1) return '劍橋英漢雙解(簡體)';
+        return 'Cambridge EN->CN Dictionary (SC)';
     }
 
     setOptions(options) {
@@ -41,7 +35,7 @@ class Cambridge_DictionaryDuyLong {
                 return node.innerText.trim();
         }
 
-        let base = 'https://dictionary.cambridge.org/vi/dictionary/english/';
+        let base = 'https://dictionary.cambridge.org/search/';
         let url = base + encodeURIComponent(word);
         let doc = '';
         try {
